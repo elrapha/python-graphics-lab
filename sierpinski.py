@@ -15,8 +15,6 @@ def sierpinski(p1,p2,p3,win,colors,n):
     print
     print
     print
-    print
-    print
     if n==1:
         
         tri = Polygon(p1,p2,p3)
@@ -56,12 +54,16 @@ def sierpinski(p1,p2,p3,win,colors,n):
             sierpinski(p4,p2,p5,win,colors,n-1)
             sierpinski(p1,p4,p6,win,colors,n-1)
             
-            
-            
         
 
 sierpinski.count=-1
 colors=['red','gold','blue','green','SteelBlue','pink','PaleTurquoise','SeaGreen','navy','khaki','DodgerBlue','skyBlue']
-sierpinski(Point(350,0),Point(0,500),Point(700,500),
-           win,colors,7)
+rounds=[5,6,7]
+while  True:
+    sierpinski(Point(350,0),Point(0,500),Point(700,500),
+           win,colors,rounds[0])
+    colors.append(colors[0])
+    rounds.append(rounds[0])
+    colors.remove(colors[0])
+    rounds.remove(rounds[0])
 win.mainloop()   
